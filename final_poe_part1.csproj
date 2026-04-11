@@ -51,6 +51,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="user_interface.cs" />
+    <Compile Include="user_response.cs" />
     <Compile Include="welcome_voice.cs" />
   </ItemGroup>
   <ItemGroup>

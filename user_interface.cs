@@ -32,7 +32,7 @@ namespace final_poe_part1
 
             // ai chat message and name
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("AI NAME: ");
+            Console.WriteLine("CYBERBOT: ");
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Hey Enter your name.");
             //rest color
@@ -68,7 +68,7 @@ namespace final_poe_part1
                 Console.WriteLine("Hey" + username);
                 //return ture as they said
                 return true;
-
+                
 
 
             }//end of if
