@@ -8,7 +8,7 @@ namespace final_poe_part1
 {//start of namespace
     public class Program
     {//start of class
-        private static readonly string username;
+        
 
         static void Main(string[] args)
         {//start of main method
