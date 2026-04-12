@@ -37,6 +37,7 @@ namespace final_poe_part1
             // Default color , you can set yours before this line
             string asciiChars = "@#S%?*+;:,. ";
 
+            Console.ForegroundColor = ConsoleColor.DarkMagenta; 
             //start by the height
             for (int y = 0; y < resized.Height; y++)
             {

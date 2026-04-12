@@ -30,15 +30,22 @@ namespace final_poe_part1
             user_interfaces.welcoming();
 
             //call the method to ask for the name
-            user_interfaces.ask_name();
+            string username = user_interfaces.ask_name();
 
+            // giving user a example on what he can ask about 
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("\n--------------------------------------");
+            Console.WriteLine("hey " + username + " Ask us anything related to cybersecurity and I will be happy to help :");
+            Console.WriteLine(" - Passwords");
+            Console.WriteLine(" - Phishing");
+            Console.WriteLine(" - Safe browsing");
+            Console.WriteLine(" - Viruses");
+            Console.WriteLine(" - Online safety tips");
+            Console.WriteLine("--------------------------------------");
+            Console.ResetColor(); 
 
-            Console.WriteLine("\nYou can ask me about passwords, phishing, safe browsing, viruses, and online safety tips.\"");
-            Console.WriteLine("Type 'exit' to close the chat.\n"); 
             //call the method to chat with the user
             user_response user_Response = new user_response();
-            user_interface user_interface = new user_interface();
-            string username = null;
             user_Response.ai_chat(username);
 
         }//end of main method

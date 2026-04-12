@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Runtime.Remoting.Messaging;
 using System.Xml.Linq;
 
+
 namespace final_poe_part1
 {//start of namespace
     public class user_response
@@ -16,39 +17,39 @@ namespace final_poe_part1
 
         //method
         public user_response()
-        {//start of method 
-
-            // conversational keywords + answers
+        {
+            // conversational keywords + improved answers
             container.Add("how are you");
-            answers.Add("I’m doing great, thanks for asking! How about you?");
+            answers.Add("Thanks for asking! I'm doing great , How about you?");
 
             container.Add("purpose");
-            answers.Add("I’m here to help you learn about cybersecurity and safe online practices.");
+            answers.Add("My purpose is to help you understand cybersecurity and stay safe online in a simple way.");
 
             container.Add("what can i ask");
-            answers.Add("You can ask me about passwords, phishing, safe browsing, viruses, and online safety tips.");
+            answers.Add("You can ask me about passwords, phishing, viruses, safe browsing, scams, and general online safety tips.");
 
-            // cybersecurity keywords + answers
+            // cybersecurity keywords + improved answers
             container.Add("password");
-            answers.Add("A strong password should be at least 8 characters long and include letters, numbers, and symbols.");
+            answers.Add("A strong password should be long (8+ characters) and include uppercase, lowercase, numbers, and symbols to keep it secure.");
 
             container.Add("phishing");
-            answers.Add("Phishing is a trick used by attackers where they pretend to be someone you trust to steal your personal information.");
+            answers.Add("Phishing is a scam where attackers pretend to be trusted companies or people to trick you into giving personal information like passwords or bank details.");
 
             container.Add("cybersecurity");
-            answers.Add("Cybersecurity is about protecting your devices and personal data from online threats.");
+            answers.Add("Cybersecurity is the practice of protecting your devices, networks, and personal data from online threats and attacks.");
 
             container.Add("virus");
-            answers.Add("A computer virus is a harmful program that can damage your system or steal your data.");
+            answers.Add("A computer virus is a harmful program that can spread and damage your files, steal information, or slow down your system.");
 
             container.Add("wifi");
-            answers.Add("Avoid using public Wi-Fi for sensitive activities like banking because it is not secure.");
+            answers.Add("Public Wi-Fi is not secure. Avoid logging into banking or entering passwords when using public networks.");
 
             container.Add("update");
-            answers.Add("Keeping your software updated helps protect you from new security threats.");
+            answers.Add("Software updates are important because they fix security problems and protect you from new threats and viruses.");
+        
 
-            // ignore words
-            ignoring.Add("what");
+        // ignore words
+        ignoring.Add("what");
             ignoring.Add("is");
             ignoring.Add("about");
         }
@@ -59,56 +60,52 @@ namespace final_poe_part1
 
             do
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.Write(username + ": ");
                 asking = Console.ReadLine().ToLower();
                 Console.ResetColor();
 
-            } while (respond(asking));
+            } while (respond(asking, username));
         }
 
-        private bool respond(string question)
+        private bool respond(string question , string username)
         {
             if (question == "exit")
             {
-                Console.WriteLine("CYBERBOT: Bye...");
+                Console.WriteLine("CYBERBOT: Bye..." + username + "! , Enjoy the rest of your day");
                 return false;
             }
 
-            string[] words = question.Split(' ');
-            bool found = false;
-
-            foreach (string word in words)
+            for (int i = 0; i < container.Count; i++)
             {
-                if (ignoring.Contains(word))
-                    continue;
-
-                for (int i = 0; i < container.Count; i++)
+                if (question.Contains(container[i].ToString()))
                 {
-                    if (word.Contains(container[i].ToString()))
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+
+                    // custom response with username
+                    if (container[i].ToString() == "how are you")
                     {
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine("CYBERBOT: " + answers[i]);
-                        Console.ResetColor();
-
-                        found = true;
-                        break;
+                        Console.WriteLine("CYBERBOT: I am great , Thanks for asking " + username + ", how about you?");
                     }
-                }
+                    else
+                    {
+                        Console.WriteLine("CYBERBOT: " + answers[i]);
+                    }
 
-                if (found)
-                    break;
+                    Console.ResetColor();
+                    return true;
+                }
             }
 
             // default response
-            if (!found)
-            {
+
+            { 
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Bot: I didn’t quite understand that. Could you rephrase? ");
+                Console.WriteLine("CYBERBOT : I didn’t quite understand that. Could you rephrase? ");
                 Console.ResetColor();
             }
 
             return true;
-        }
-    }
+        }//end of method
+    }//end of class
 }//end of namespace

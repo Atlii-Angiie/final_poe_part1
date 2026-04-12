@@ -14,11 +14,11 @@ namespace final_poe_part1
         {
             //start of method
             //display the welcome message with text color
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("=========================");
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine("[WELCOME TO CHATBOT]");
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("[WELCOME TO CYBERBOT]");
+            Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("=========================");
             //reset the color to default
             Console.ResetColor();
@@ -27,13 +27,13 @@ namespace final_poe_part1
         }//end of method welcome
         //prompt the user for the username
 
-        public void ask_name()
+        public string ask_name()
         {//srat of method
 
             // ai chat message and name
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("CYBERBOT: ");
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("Hey Enter your name.");
             //rest color
             Console.ResetColor();
@@ -45,13 +45,14 @@ namespace final_poe_part1
                 Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.Write("User : ");
                 //now set the color for when they entering the name
-                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 username = Console.ReadLine();
                 //reset color
                 Console.ResetColor();
 
             } while (!isEmpty());
 
+            return username;
             //end of do while
         }
             //THE BOOLEAN METHOD TO CHECK IF THE USER ENTERED NAME
@@ -63,10 +64,10 @@ namespace final_poe_part1
             {//start of if
                 // return success message if not empty
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.Write("CYBERBOT");
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Hey" + username);
-                //return ture as they said
+                Console.Write("CYBERBOT: ");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("Hey " + username);
+                //return true as they said
                 return true;
                 
 
@@ -77,7 +78,7 @@ namespace final_poe_part1
                 //error message
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write("CYBERBOT : ");
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("Please enter your name");
 
                 //return false
