@@ -135,6 +135,9 @@ User: exit
 CYBERBOT: Bye! Enjoy the rest of your day
 ```
 ## 🖼️ Screenshots
+<img width="653" height="120" alt="CI workflow" src="https://github.com/user-attachments/assets/abb52dee-236f-42ab-91b6-dcb969d98373" />
+
+
 
 ## 👨‍💻 Author
 
