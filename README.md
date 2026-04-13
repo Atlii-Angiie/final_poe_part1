@@ -136,9 +136,6 @@ CYBERBOT: Bye! Enjoy the rest of your day
 ```
 ## 🖼️ Screenshots
 
-### 🔐 CI WORKFLOW - Green Tick
-![CI WORKFLOW](assets/CI_WorkFlow.png)
-
 ## 👨‍💻 Author
 
 Created as part of a cybersecurity chatbot assignment.
